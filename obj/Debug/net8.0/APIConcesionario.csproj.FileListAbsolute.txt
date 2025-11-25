@@ -138,3 +138,4 @@ C:\Users\57302\sena\2025\trimestreIV\NET\3147913\APIConcesionario\obj\Debug\net8
 C:\Users\57302\sena\2025\trimestreIV\NET\3147913\APIConcesionario\obj\Debug\net8.0\APIConcesionario.pdb
 C:\Users\57302\sena\2025\trimestreIV\NET\3147913\APIConcesionario\obj\Debug\net8.0\APIConcesionario.genruntimeconfig.cache
 C:\Users\57302\sena\2025\trimestreIV\NET\3147913\APIConcesionario\obj\Debug\net8.0\ref\APIConcesionario.dll
+C:\Users\57302\sena\2025\trimestreIV\NET\3147913\APIConcesionario\obj\Debug\net8.0\APIConcesionario.sourcelink.json

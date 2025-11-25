@@ -34,6 +34,7 @@ namespace APIConcesionario.Repositories
             existing.Documento = cliente.Documento;
             existing.NombreCompleto = cliente.NombreCompleto;
             existing.Whatsapp = cliente.Whatsapp;
+            existing.IdCiudad = cliente.IdCiudad;
 
             await _context.SaveChangesAsync();
             return existing;
@@ -50,3 +51,8 @@ namespace APIConcesionario.Repositories
         }
     }
 }
+
+
+/*
+ Crear la api de Ciudad
+ */

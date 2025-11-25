@@ -175,6 +175,7 @@
       "ClienteDto": {
         "required": [
           "documento",
+          "idCiudad",
           "nombreCompleto",
           "whatsapp"
         ],
@@ -185,12 +186,17 @@
             "format": "int64"
           },
           "nombreCompleto": {
-            "minLength": 1,
+            "maxLength": 50,
+            "minLength": 3,
             "type": "string"
           },
           "whatsapp": {
             "type": "integer",
             "format": "int64"
+          },
+          "idCiudad": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

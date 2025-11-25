@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIConcesionario.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251118161002_Migracion1")]
-    partial class Migracion1
+    [Migration("20251124155122_MigrationIncial")]
+    partial class MigrationIncial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,23 @@ namespace APIConcesionario.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("APIConcesionario.Models.Ciudad", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ciudades");
+                });
 
             modelBuilder.Entity("APIConcesionario.Models.Cliente", b =>
                 {
@@ -35,6 +52,9 @@ namespace APIConcesionario.Migrations
                     b.Property<long>("Documento")
                         .HasColumnType("bigint");
 
+                    b.Property<int>("IdCiudad")
+                        .HasColumnType("int");
+
                     b.Property<string>("NombreCompleto")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -44,7 +64,20 @@ namespace APIConcesionario.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdCiudad");
+
                     b.ToTable("Clientes");
+                });
+
+            modelBuilder.Entity("APIConcesionario.Models.Cliente", b =>
+                {
+                    b.HasOne("APIConcesionario.Models.Ciudad", "Ciudad")
+                        .WithMany()
+                        .HasForeignKey("IdCiudad")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ciudad");
                 });
 #pragma warning restore 612, 618
         }

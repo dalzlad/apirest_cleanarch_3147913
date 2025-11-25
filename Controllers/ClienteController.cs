@@ -41,7 +41,8 @@ namespace APIConcesionario.Controllers
             {
                 Documento = clienteDto.Documento,
                 NombreCompleto = clienteDto.NombreCompleto,
-                Whatsapp = clienteDto.Whatsapp
+                Whatsapp = clienteDto.Whatsapp,
+                IdCiudad = clienteDto.IdCiudad
             };
             var created = await _clienteRepository.Add(newCliente);
             return CreatedAtAction(nameof(GetById), new {id=created.Id}, created);
@@ -55,7 +56,8 @@ namespace APIConcesionario.Controllers
             {
                 Documento = clienteDto.Documento,
                 NombreCompleto = clienteDto.NombreCompleto,
-                Whatsapp = clienteDto.Whatsapp
+                Whatsapp = clienteDto.Whatsapp,
+                IdCiudad = clienteDto.IdCiudad
             };
             var updated = await _clienteRepository.Update(id, updateCliente);
             if (updated == null) return NotFound();
